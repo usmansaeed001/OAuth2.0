@@ -1,0 +1,30 @@
+server:
+  port: 8070
+  servlet:
+    session:
+      cookie:
+        name: CLIENT-SESSION
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          oauth2-client:
+            provider: client-provider
+            client-name: oauth2-client
+            client-id: oauth2-client
+            client-secret: oauth2-client
+            authorization-grant-type: authorization_code
+            redirect-uri: "http://127.0.0.1:8070/login/oauth2/code/oauth2-client"
+            scope: message.read
+        provider:
+          client-provider:
+            authorization-uri: http://127.0.0.1:8080/oauth2/authorize
+            token-uri: http://127.0.0.1:8080/oauth2/token
+logging:
+  level:
+    root: INFO
+    org.springframework.web: INFO
+    org.springframework.security: debug
+    org.springframework.security.oauth2: debug
