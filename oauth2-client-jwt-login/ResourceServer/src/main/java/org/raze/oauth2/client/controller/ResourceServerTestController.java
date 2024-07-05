@@ -15,9 +15,14 @@ import java.util.Map;
  */
 @RestController
 public class ResourceServerTestController {
-	@GetMapping("/resource/test")
+	@GetMapping("/resource/claim")
 	public Map<String, Object> getArticles(@AuthenticationPrincipal Jwt jwt) {
 		System.out.println(jwt);
 		return Collections.singletonMap("Resource Server", jwt.getClaims());
+	}
+
+	@GetMapping("/resource/test")
+	public Map<String, Object> getArticles() {
+		return Collections.singletonMap("Resource Server", "/resource/test");
 	}
 }

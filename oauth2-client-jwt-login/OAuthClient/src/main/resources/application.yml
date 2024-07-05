@@ -10,13 +10,13 @@ spring:
     oauth2:
       client:
         registration:
-          oauth2-client:
+          oauth2client:
             provider: client-provider
-            client-name: oauth2-client
-            client-id: oauth2-client
-            client-secret: oauth2-client
+            client-name: oauth2client
+            client-id: oauth2client
+            client-secret: oauth2client
             authorization-grant-type: authorization_code
-            redirect-uri: "http://127.0.0.1:8070/login/oauth2/code/oauth2-client"
+            redirect-uri: "http://127.0.0.1:8070/login/oauth2/code/oauth2client"
             scope: message.read
         provider:
           client-provider:
@@ -25,6 +25,6 @@ spring:
 logging:
   level:
     root: INFO
-    org.springframework.web: INFO
+    org.springframework.web: debug
     org.springframework.security: debug
     org.springframework.security.oauth2: debug
